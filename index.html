@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Plumbing | Family-Owned Plumbing in Denver, CO</title>
+  <meta name="description" content="Quality Plumbing — friendly, family-owned plumbing installation, repair & maintenance in Denver, CO. Call (303) 981-1059.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', sans-serif; color: #1f2a44; line-height: 1.6; background: #fff; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+    ul { list-style: none; }
+
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --red: #8b1413;
+      --navy: #1f2a44;
+      --navy-70: rgba(31, 42, 68, 0.7);
+      --navy-60: rgba(31, 42, 68, 0.6);
+      --navy-10: rgba(31, 42, 68, 0.1);
+      --border: #dedfe3;
+      --bg-light: #f5f5f5;
+      --bg-alt: #f8f8f8;
+      --white: #ffffff;
+      --content-max: 1200px;
+      --text-max: 786px;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .heading-serif {
+      font-family: 'Cormorant Garamond', 'Georgia', serif;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    h1 { font-size: 64px; line-height: 56px; letter-spacing: -0.06em; }
+    h2 { font-size: 52px; line-height: 48px; letter-spacing: -0.04em; }
+    h3 { font-size: 40px; line-height: 40px; letter-spacing: -0.04em; }
+    .body-text { font-size: 16px; line-height: 22px; letter-spacing: -0.01em; color: var(--navy-70); font-weight: 400; }
+    .body-small { font-size: 14px; line-height: 21px; letter-spacing: -0.01em; color: var(--navy-70); font-weight: 400; }
+    .label-text { font-size: 14px; line-height: 20px; letter-spacing: -0.01em; font-weight: 500; }
+    .fine-print { font-size: 14px; line-height: 20px; color: var(--navy-60); }
+
+    /* ===== LAYOUT ===== */
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .section-full {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .section-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      position: relative;
+    }
+    .bordered-lr {
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .bordered-tb {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .bordered-b {
+      border-bottom: 1px solid var(--border);
+    }
+    .bordered-t {
+      border-top: 1px solid var(--border);
+    }
+
+    /* Corner dots */
+    .corner-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: var(--border);
+    }
+    .dot-tl { top: -3px; left: -3px; }
+    .dot-tr { top: -3px; right: -3px; }
+    .dot-bl { bottom: -3px; left: -3px; }
+    .dot-br { bottom: -3px; right: -3px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 54px;
+      padding: 0 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--navy);
+    }
+    .btn-full { width: 100%; }
+
+    /* ===== NAV ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar-inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-cta .btn { height: 40px; padding: 0 20px; font-size: 13px; }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger svg { width: 24px; height: 24px; stroke: var(--navy); fill: none; stroke-width: 2; }
+
+    /* Mobile nav */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+    .mobile-overlay.active { display: flex; }
+    .mobile-overlay a { font-size: 20px; font-weight: 500; color: var(--navy); }
+    .mobile-overlay .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-outer {
+      width: 100%;
+      max-width: var(--content-max);
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .hero-content {
+      max-width: var(--text-max);
+      margin: 0 auto;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: none;
+      padding: 50px 32px 0;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 9px;
+      position: relative;
+    }
+    .hero-content h1 { margin-bottom: 16px; }
+    .hero-content .body-text { max-width: 422px; margin-bottom: 42px; }
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% + 64px);
+      margin: 0 -32px;
+      gap: 0;
+    }
+    .hero-ctas .btn { width: 100%; }
+    .hero-ctas .btn + .btn { border-top: none; }
+    .hero-image {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      height: 400px;
+      background: var(--bg-light);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy-70);
+      font-size: 14px;
+    }
+    .hero-image-inner svg {
+      width: 120px;
+      height: 120px;
+      opacity: 0.15;
+    }
+
+    /* ===== SECTION: PATH STEPS ===== */
+    .steps-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .steps-header {
+      padding: 56px 32px 40px;
+      max-width: var(--text-max);
+      text-align: center;
+      margin: 0 auto;
+    }
+    .steps-header h2 { margin-bottom: 12px; }
+    .steps-grid {
+      display: flex;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border);
+    }
+    .step-card {
+      flex: 1 1 250px;
+      padding: 32px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      position: relative;
+    }
+    .step-card:last-child { border-right: none; }
+    .step-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--bg-light);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-icon svg { width: 28px; height: 28px; fill: var(--red); }
+    .step-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ===== SECTION: PROGRAMS / SERVICES ===== */
+    .programs-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .programs-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      position: relative;
+    }
+    .programs-header {
+      padding: 56px 32px 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 80px;
+    }
+    .programs-header h2 { flex: 1; }
+    .programs-header-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .programs-header .body-text { max-width: 500px; }
+    .programs-header .btn { margin-top: 4px; }
+    @media (max-width: 768px) {
+      .programs-header { flex-direction: column; }
+    }
+
+    /* Features sub-section */
+    .features-bar {
+      background: var(--white);
+      padding: 48px 32px;
+    }
+    .features-bar-label {
+      margin-bottom: 24px;
+      text-align: center;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .features-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .feature-card {
+      flex: 1 1 280px;
+      background: var(--bg-light);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-2px); }
+    .feature-card-img {
+      width: 100%;
+      height: 200px;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-card-img svg { width: 48px; height: 48px; opacity: 0.2; }
+    .feature-card-body { padding: 20px 24px; text-align: center; }
+    .feature-card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    /* Financial sub-section */
+    .finance-bar {
+      border-top: 1px solid var(--border);
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .finance-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .finance-card {
+      flex: 1 1 280px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .finance-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ===== SECTION: CAREER / SERVICE AREAS ===== */
+    .careers-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .careers-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .careers-header {
+      padding: 56px 32px 40px;
+      text-align: center;
+    }
+    .careers-header h2 { margin-bottom: 12px; }
+    .careers-grid {
+      display: flex;
+      border-top: 1px solid var(--border);
+    }
+    .career-card {
+      flex: 1 0 0;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .career-card:last-child { border-right: none; }
+    .career-card-img {
+      width: 100%;
+      aspect-ratio: 1.4;
+      background: var(--bg-light);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .career-card-img svg { width: 40px; height: 40px; opacity: 0.15; }
+    .career-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .career-card .salary {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+    }
+    .career-card .salary svg { width: 16px; height: 16px; stroke: var(--navy); fill: none; }
+    .career-card .salary span { font-weight: 600; font-size: 15px; color: var(--navy); }
+    .careers-cta {
+      padding: 24px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== SECTION: WHY CHOOSE ===== */
+    .why-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .why-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      padding-bottom: 74px;
+      position: relative;
+    }
+    .why-header {
+      padding: 56px 32px 40px;
+      text-align: center;
+    }
+    .why-header h2 { margin-bottom: 12px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(50px, 1fr));
+      gap: 42px 18px;
+      padding: 0 32px;
+    }
+    .why-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+    .why-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-card-icon svg { width: 22px; height: 22px; fill: var(--red); }
+    .why-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ===== SECTION: TESTIMONIALS ===== */
+    .testimonials-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .testimonials-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      padding-bottom: 52px;
+      position: relative;
+    }
+    .testimonials-header {
+      padding: 56px 32px 40px;
+      text-align: center;
+    }
+    .testimonials-header h2 { margin-bottom: 12px; }
+    .testimonials-grid {
+      display: flex;
+      gap: 42px;
+      padding: 0 32px;
+    }
+    .testimonial-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--navy);
+    }
+    .testimonial-author {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .testimonial-role {
+      font-size: 14px;
+      color: var(--navy-70);
+    }
+
+    /* ===== SECTION: WORKSHOP / OUR WORK ===== */
+    .workshop-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .workshop-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    .workshop-image {
+      flex: 1;
+      min-height: 380px;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+    }
+    .workshop-image svg { width: 80px; height: 80px; opacity: 0.12; }
+    .workshop-content {
+      flex: 1;
+      padding: 56px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .workshop-content h2 { margin-bottom: 8px; }
+    .workshop-content .btn { align-self: flex-start; margin-top: 16px; }
+
+    /* ===== SECTION: FINAL CTA ===== */
+    .final-cta {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .final-cta-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    .final-cta-image {
+      flex: 1;
+      min-height: 350px;
+      background: var(--bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .final-cta-image svg { width: 80px; height: 80px; opacity: 0.12; }
+    .final-cta-content {
+      flex: 1;
+      min-width: 50%;
+      padding: 56px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .final-cta-content h2 { margin-bottom: 8px; }
+    .final-cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 20px;
+    }
+    .final-cta-buttons .btn { width: 100%; }
+    .final-cta-buttons .btn + .btn { border-top: none; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .footer-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      padding: 0 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .footer-top {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+    .footer-contact-bar {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--navy-70);
+    }
+    .footer-contact-item svg { width: 16px; height: 16px; stroke: var(--navy); fill: none; stroke-width: 2; }
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ===== HOURS TABLE ===== */
+    .hours-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hours-inner {
+      width: 100%;
+      max-width: var(--content-max);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      display: flex;
+      position: relative;
+    }
+    .hours-content {
+      flex: 1;
+      padding: 56px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-right: 1px solid var(--border);
+    }
+    .hours-content h2 { margin-bottom: 8px; }
+    .hours-table-wrap {
+      flex: 1;
+      padding: 56px 32px;
+    }
+    .hours-table-wrap h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { font-weight: 500; color: var(--navy); }
+    .hours-row .time { color: var(--navy-70); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      h1 { font-size: 48px; line-height: 44px; white-space: normal !important; }
+      h2 { font-size: 40px; line-height: 40px; }
+      h3 { font-size: 32px; line-height: 34px; }
+      .hero-image { height: 300px; }
+      .careers-grid { flex-wrap: wrap; }
+      .career-card { flex: 1 1 45%; }
+      .career-card:nth-child(even) { border-right: none; }
+      .workshop-inner { flex-direction: column; }
+      .workshop-image { min-height: 280px; border-right: none !important; border-left: none !important; border-bottom: 1px solid var(--border); }
+      .hours-inner { flex-direction: column; }
+      .hours-content { border-right: none; border-bottom: 1px solid var(--border); }
+      .programs-header { flex-direction: column; gap: 24px; }
+      .features-bar-label { font-size: 40px; line-height: 40px; }
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; line-height: 40px; letter-spacing: -0.04em; white-space: normal !important; }
+      h2 { font-size: 30px; line-height: 34px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .steps-grid { flex-direction: column; }
+      .step-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .step-card:last-child { border-bottom: none; }
+      .why-grid { grid-template-columns: 1fr; gap: 32px; }
+      .testimonials-grid { flex-direction: column; gap: 32px; }
+      .careers-grid { flex-direction: column; }
+      .career-card { border-right: none; flex: 1 1 100%; }
+      .features-grid { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: 12px; }
+      .hero-ctas { width: 100% !important; margin: 0 !important; }
+      .hero-content { border-left: none; border-right: none; }
+      .corner-dot { display: none; }
+      .features-bar-label { font-size: 30px; line-height: 34px; }
+      .navbar-inner div[style*="position:absolute"] { display: none; }
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 28px; line-height: 34px; }
+      h2 { font-size: 26px; line-height: 30px; }
+      .navbar-inner { padding: 0 16px; }
+      .hero-content { padding: 32px 16px 0; }
+      .steps-header { padding: 40px 16px 32px; }
+      .step-card { padding: 24px 16px; }
+      .programs-header { padding: 40px 16px 16px; }
+      .features-bar { padding: 32px 16px; }
+      .careers-header { padding: 40px 16px 32px; }
+      .career-card { padding: 24px 16px; }
+      .why-header { padding: 40px 16px 32px; }
+      .why-grid { padding: 0 16px; }
+      .testimonials-header { padding: 40px 16px 32px; }
+      .testimonials-grid { padding: 0 16px; }
+      .workshop-content { padding: 40px 16px; }
+      .hours-content { padding: 40px 16px; }
+      .hours-table-wrap { padding: 40px 16px; }
+      .features-bar-label { font-size: 26px; line-height: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="navbar-inner" style="position:relative;">
+      <div style="position:absolute;top:0;bottom:0;left:0;width:1px;background:var(--border);z-index:2;"></div>
+      <div style="position:absolute;top:0;bottom:0;left:calc((100% - var(--text-max)) / 2);width:1px;background:var(--border);z-index:2;"></div>
+      <a href="#" class="nav-logo">Quality Plumbing</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#hours">Hours</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-outline" style="height:64px;border-radius:0;border-top:none;border-bottom:none;border-right:none;">Contact Us</a>
+        <a href="tel:3039811059" class="btn btn-primary" style="height:64px;border-radius:0;margin-right:-32px;">(303) 981-1059</a>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileNav').classList.add('active')">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-overlay" id="mobileNav">
+    <button class="close-btn" onclick="document.getElementById('mobileNav').classList.remove('active')">&times;</button>
+    <a href="#services" onclick="document.getElementById('mobileNav').classList.remove('active')">Services</a>
+    <a href="#pricing" onclick="document.getElementById('mobileNav').classList.remove('active')">Pricing</a>
+    <a href="#why-us" onclick="document.getElementById('mobileNav').classList.remove('active')">Why Us</a>
+    <a href="#reviews" onclick="document.getElementById('mobileNav').classList.remove('active')">Reviews</a>
+    <a href="#hours" onclick="document.getElementById('mobileNav').classList.remove('active')">Hours</a>
+    <a href="tel:3039811059" class="btn btn-primary" style="margin-top:16px;">Call (303) 981-1059</a>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-outer">
+        <div class="hero-content" style="position:relative;">
+          <span class="corner-dot dot-tl"></span>
+          <span class="corner-dot dot-tr"></span>
+          <h1 class="heading-serif" style="white-space:nowrap;">Denver's Trusted Family Plumbing<br>Experts</h1>
+          <p class="body-text">Your home deserves reliable, honest plumbing. Quality Plumbing is a family-owned-and-run outfit delivering expert installation, repair and maintenance services across the Denver metro.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary btn-full" style="border-top:none;">Contact Us</a>
+            <a href="tel:3039811059" class="btn btn-full" style="border:none;">Call (303) 981-1059</a>
+          </div>
+        </div>
+        <div class="hero-image" style="position:relative;">
+          <span class="corner-dot dot-tl"></span>
+          <span class="corner-dot dot-tr"></span>
+          <span class="corner-dot dot-bl"></span>
+          <span class="corner-dot dot-br"></span>
+          <img src="images/hero.jpg" alt="Plumber with wrench and tools" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="steps-section" id="services">
+      <div class="steps-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="steps-header">
+          <h2 class="heading-serif">How We Take Care of Your Home</h2>
+          <p class="body-text">With Quality Plumbing, there's zero guesswork. Our experienced, family team handles every project from start to finish with clear communication and honest pricing.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <h3>Call or Text Us</h3>
+            <p class="body-small">Reach out anytime at (303) 981-1059. We'll listen to your issue and schedule a time that works for you.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <h3>We Come to You</h3>
+            <p class="body-small">Our team arrives on time, every time. We inspect the situation and give you an honest, upfront diagnosis.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+            </div>
+            <h3>Expert Repair</h3>
+            <p class="body-small">We fix it right the first time using quality parts and proven techniques. No cutting corners.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <h3>Guaranteed Results</h3>
+            <p class="body-small">We stand behind every job with a satisfaction guarantee. If you're not happy, we make it right.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS / SERVICES -->
+    <section class="programs-section" id="pricing">
+      <div class="programs-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="programs-header">
+          <h2 class="heading-serif">Full-Service Plumbing for Denver Homes</h2>
+          <div class="programs-header-right">
+            <p class="body-text">From routine maintenance to major installations, our licensed team handles every plumbing need with skill and care.</p>
+            <a href="tel:3039811059" class="btn btn-primary">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="features-bar">
+          <h2 class="heading-serif features-bar-label">Our Core Services</h2>
+          <div class="features-grid">
+            <a class="feature-card" href="tel:3039811059">
+              <div class="feature-card-img">
+                <img src="images/feature-repairs.jpg" alt="Plumber fixing leaking pipe" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="feature-card-body">
+                <h3>Repairs &amp; Leak Fixes</h3>
+                <p class="body-small">Burst pipes, dripping faucets, running toilets, and more. Fast diagnosis, lasting repairs.</p>
+              </div>
+            </a>
+            <a class="feature-card" href="tel:3039811059">
+              <div class="feature-card-img">
+                <img src="images/feature-installation.jpg" alt="Bathroom plumbing installation" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="feature-card-body">
+                <h3>Installation Services</h3>
+                <p class="body-small">New fixtures, water heaters, garbage disposals, and full bathroom or kitchen plumbing.</p>
+              </div>
+            </a>
+            <a class="feature-card" href="tel:3039811059">
+              <div class="feature-card-img">
+                <img src="images/feature-maintenance.jpg" alt="Plumber at kitchen sink" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="feature-card-body">
+                <h3>Maintenance &amp; Inspections</h3>
+                <p class="body-small">Drain cleaning, sewer camera inspections, and preventative checkups to avoid costly surprises.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICE AREAS (Career Options analog) -->
+    <section class="careers-section">
+      <div class="careers-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="careers-header">
+          <h2 class="heading-serif">Service Areas Across Denver</h2>
+        </div>
+        <div class="careers-grid">
+          <div class="career-card">
+            <div class="career-card-img">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24500!2d-105.0167!3d39.7697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" style="width:100%;height:100%;border:0;pointer-events:none;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <h3>Northwest Denver</h3>
+            <p class="body-small">Sunnyside, Highland, Berkeley, West Highland</p>
+            <div class="salary">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+              <span>Our Home Base</span>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-img">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24500!2d-104.9847!3d39.7392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" style="width:100%;height:100%;border:0;pointer-events:none;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <h3>Central Denver</h3>
+            <p class="body-small">Capitol Hill, RiNo, Five Points, City Park</p>
+          </div>
+          <div class="career-card">
+            <div class="career-card-img">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24500!2d-104.9739!3d39.6977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" style="width:100%;height:100%;border:0;pointer-events:none;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <h3>South Denver</h3>
+            <p class="body-small">Wash Park, Platt Park, University Hills, DU Area</p>
+          </div>
+          <div class="career-card">
+            <div class="career-card-img">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24500!2d-105.0875!3d39.8028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" style="width:100%;height:100%;border:0;pointer-events:none;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <h3>Arvada &amp; Wheat Ridge</h3>
+            <p class="body-small">North suburbs and surrounding neighborhoods</p>
+          </div>
+          <div class="career-card">
+            <div class="career-card-img">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24500!2d-105.1686!3d39.7555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1" style="width:100%;height:100%;border:0;pointer-events:none;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <h3>Lakewood &amp; Golden</h3>
+            <p class="body-small">West metro communities and foothills</p>
+          </div>
+        </div>
+        <div class="careers-cta" style="display:flex;justify-content:center;">
+          <a href="tel:3039811059" class="btn btn-primary">Not Sure If We Cover Your Area? Call Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS -->
+    <section class="hours-section" id="hours">
+      <div class="hours-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="hours-content" style="position:relative;">
+          <span class="corner-dot dot-tr"></span>
+          <span class="corner-dot dot-br"></span>
+          <h2 class="heading-serif">Visit or Call Anytime</h2>
+          <p class="body-text">We're conveniently located in Northwest Denver and ready to help seven days a week.</p>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>3425 W Scott Pl, Denver, CO 80211</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <a href="tel:3039811059" style="color:var(--navy); font-weight:500;">(303) 981-1059</a>
+            </div>
+          </div>
+        </div>
+        <div class="hours-table-wrap">
+          <h3>Business Hours</h3>
+          <div class="hours-row"><span class="day">Monday</span><span class="time">9:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Tuesday</span><span class="time">9:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Wednesday</span><span class="time">9:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Thursday</span><span class="time">9:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Friday</span><span class="time">9:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span class="time">11:00 AM - 8:00 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">11:00 AM - 8:00 PM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-section" id="why-us">
+      <div class="why-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="why-header">
+          <h2 class="heading-serif">Why Denver Families Choose<br>Quality Plumbing</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+            <h3>Licensed &amp; Insured</h3>
+            <p class="body-small">Fully licensed Colorado plumbers with comprehensive insurance for your peace of mind.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17.66 8L12 2.35 6.34 8A8.02 8.02 0 004 13.64c0 2 .78 4.11 2.34 5.67a7.99 7.99 0 0011.32 0c1.56-1.56 2.34-3.67 2.34-5.67S19.22 9.56 17.66 8z"/></svg>
+            </div>
+            <h3>Real Tools, Real Parts</h3>
+            <p class="body-small">We use professional-grade equipment and quality replacement parts on every job.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <h3>Same-Day Service</h3>
+            <p class="body-small">Plumbing emergencies can't wait. We offer same-day response for urgent situations.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
+            <h3>Upfront Pricing</h3>
+            <p class="body-small">Detailed estimates before work begins. No hidden fees or surprise bills.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </div>
+            <h3>Family-Owned &amp; Operated</h3>
+            <p class="body-small">We're part of this community. Our family's reputation is on the line with every job.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <h3>Clean &amp; Respectful</h3>
+            <p class="body-small">We protect your floors, clean up after ourselves, and treat your home with care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="reviews">
+      <div class="testimonials-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="testimonials-header">
+          <h2 class="heading-serif">Hear From Our Customers</h2>
+          <p class="body-text">Real stories from Denver families who trust Quality Plumbing with their homes.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div style="display:flex;gap:2px;margin-bottom:4px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">"I had Gilbert at Quality Plumbing replace our water heater and could not be more pleased! I wanted the new unit to be moved a couple feet over to gain some space in the room and Gilbert got us the most space possible. The price was fair and Gilbert is a great guy to boot! 100% recommended!"</p>
+            <div>
+              <div class="testimonial-author">Matt Bischoff</div>
+              <div class="testimonial-role">Google Review</div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div style="display:flex;gap:2px;margin-bottom:4px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">"Quality Plumbing is the best! I called Gilbert in a panic on a Friday afternoon because our backflow stopped working. He told me it was an easy fix, texted me pictures of which part to buy at Home Depot and then FaceTimed us when we were having issues with installing it ourselves. Very thankful for his help and highly recommend this company!"</p>
+            <div>
+              <div class="testimonial-author">Menesha Mannapperuma</div>
+              <div class="testimonial-role">Google Review</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 24px 32px 52px;display:flex;justify-content:center;">
+          <a href="https://www.google.com/search?q=quality+plumbing+denver+reviews" target="_blank" rel="noopener" class="btn btn-outline" style="gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            See All Our Google Reviews
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKSHOP / OUR WORK -->
+    <section class="workshop-section">
+      <div class="workshop-inner">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <div class="workshop-content">
+          <h2 class="heading-serif">Quality Craftsmanship You Can Trust</h2>
+          <p class="body-text">Our team brings years of hands-on experience to every job. Whether it's a simple faucet replacement or a complete re-pipe, we approach every project with the same commitment to quality workmanship and lasting results.</p>
+          <p class="body-small">We use professional-grade tools and source quality materials from trusted suppliers. Every repair and installation is built to last.</p>
+          <a href="tel:3039811059" class="btn btn-primary">Contact Us</a>
+        </div>
+        <div class="workshop-image" style="border-right:none;border-left:1px solid var(--border);position:relative;">
+          <span class="corner-dot dot-tl"></span>
+          <span class="corner-dot dot-bl"></span>
+          <img src="images/cta.jpg" alt="Plumbing tools and equipment" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="width:100%;display:flex;justify-content:center;" id="contact">
+      <div style="width:100%;max-width:var(--content-max);border-left:1px solid var(--border);border-right:1px solid var(--border);display:flex;justify-content:center;padding:0 32px 8px;position:relative;">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <div style="width:100%;max-width:800px;border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:center;text-align:center;padding:48px 32px 0;position:relative;margin-top:-1px;background:var(--white);overflow:visible;">
+          <span class="corner-dot dot-tl"></span>
+          <span class="corner-dot dot-tr"></span>
+          <h2 class="heading-serif" style="margin-bottom:16px;">Ready to Fix That Plumbing Problem?</h2>
+          <p class="body-text" style="max-width:420px;margin-bottom:32px;">Talk to our team and see how Quality Plumbing can help. We're here 7 days a week for any plumbing need, big or small.</p>
+          <div style="width:calc(100% + 64px);margin:0 -32px;display:flex;flex-direction:column;">
+            <a href="tel:3039811059" class="btn btn-primary btn-full" style="border-top:1px solid var(--border);">Contact Us</a>
+            <a href="tel:3039811059" class="btn btn-outline btn-full" style="border:none;">Call Now: (303) 981-1059</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- FOOTER -->
+  <footer style="width:100%;display:flex;justify-content:center;">
+    <div style="width:100%;max-width:var(--content-max);border-left:1px solid var(--border);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <div style="width:100%;padding:40px 32px;display:flex;flex-direction:column;align-items:center;gap:16px;position:relative;">
+        <div class="footer-logo">Quality Plumbing</div>
+        <div class="footer-links" style="justify-content:center;flex-wrap:wrap;">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#why-us">Why Us</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#hours">Hours &amp; Location</a>
+        </div>
+      </div>
+      <div style="width:100%;border-top:1px solid var(--border);padding:24px 32px;display:flex;justify-content:center;flex-wrap:wrap;gap:32px;position:relative;">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>3425 W Scott Pl, Denver, CO 80211</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:3039811059" style="color:var(--navy);">(303) 981-1059</a>
+        </div>
+      </div>
+      <div style="width:100%;border-top:1px solid var(--border);padding:24px 32px;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;">
+        <span class="corner-dot dot-tl"></span>
+        <span class="corner-dot dot-tr"></span>
+        <span class="corner-dot dot-bl"></span>
+        <span class="corner-dot dot-br"></span>
+        <span class="fine-print">Licensed &amp; Insured Plumbing Contractor &mdash; State of Colorado</span>
+        <span class="fine-print">Quality Plumbing. All rights reserved. &copy; 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
